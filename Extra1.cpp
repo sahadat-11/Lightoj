@@ -37,7 +37,6 @@ int main() {
        }
        numbers_of_divisors = numbers_of_divisors * (exp + 1); 
        sum_of_divisors *= (1LL * prime_power * k - 1) / (k - 1);
-       //n /= k;
      }
      cout << lpf <<" " << gpf << " ";
      cout << distinct_prime << " " << total_prime;
