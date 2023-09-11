@@ -7,7 +7,7 @@ ll range(ll year) {
    ans -= year / 100;
    ans += year / 400;
    return ans;
-}
+} 
 int main() {
    ios_base::sync_with_stdio(0);
    cin.tie(0);
@@ -28,3 +28,4 @@ int main() {
 
    return 0;
 }
+//https://prnt.sc/WuwpkqZmUs2Y 
