@@ -15,6 +15,8 @@ int main() {
    return 0;
 }
 
+// https://prnt.sc/lwz1w9hQNTnu 
+
 //In The Name of ALLAH
 #include <bits/stdc++.h>
 using namespace std;
