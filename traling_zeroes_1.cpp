@@ -48,3 +48,6 @@ int main() {
    return 0;
 }
 // https://prnt.sc/YS4sjDUoFgWn 
+// https://prnt.sc/zDdoPEslmt-e
+// https://prnt.sc/XCc9dNzLdOLz
+// problem : https://lightoj.com/problem/trailing-zeroes-i
