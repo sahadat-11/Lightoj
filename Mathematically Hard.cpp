@@ -20,7 +20,7 @@ int main() {
     	}
     }
     //for(int i = 1; i <= 20; i++) cout << phi[i] << "\n";
-     prephi[1] = (ull)0;
+    prephi[1] = (ull)0;
     for(int i = 2; i <= N; i++) {
     	prephi[i] = prephi[i - 1] + ((ull)phi[i] * (ull)phi[i]);
     }
