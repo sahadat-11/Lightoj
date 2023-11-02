@@ -72,3 +72,5 @@ int main() {
     	}
     }
 }
+//https://prnt.sc/qfDWYCu-h27r
+//https://prnt.sc/uBqaN6W3eQDr

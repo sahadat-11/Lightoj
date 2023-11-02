@@ -1,29 +1,31 @@
-// //In The Name of AllAH
-// #include <bits/stdc++.h>
-// using namespace std;
-// #define ll long long
-// const int N = 5e4 + 7;
-// int a[N], b[N], ans[N];
-// int main() {
-	// ios_base::sync_with_stdio(0);
-    // cin.tie(0);
-    // int t; cin >> t;
-    // while(t--) {
-    	// int n, q; cin >> n >> q;
-    	// for(int i = 1; i <= n; i++) {
-    		// cin >> a[i] >> b[i];
-    		// for(int k = a[i]; k <= b[i]; k++) {
-    			// ans[k]++;
-    		// }
-    	// }
-    	// while(q--) {
-    		// int k; cin >> k;
-    		// cout << ans[k] << "\n";
-    	// }
-    // }
-//     
-    // return 0;  
-// }
+//In The Name of AllAH
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+const int N = 5e4 + 7;
+int a[N], b[N], ans[N];
+int main() {
+	ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    int t; cin >> t;
+    while(t--) {
+    	int n, q; cin >> n >> q;
+    	for(int i = 1; i <= n; i++) {
+    		cin >> a[i] >> b[i];
+    		for(int k = a[i]; k <= b[i]; k++) {
+    			ans[k]++;
+    		}
+    	}
+    	while(q--) {
+    		int k; cin >> k;
+    		cout << ans[k] << "\n";
+    	}
+    }
+    
+    return 0;  
+}
+// O(n * n)
+
 
 //In The Name of AllAH
 #include <bits/stdc++.h>
@@ -76,3 +78,5 @@ int main() {
     
     return 0;  
 }
+//https://prnt.sc/j0AT6y0uOETG
+//https://prnt.sc/vcrXqtxCNwj6
