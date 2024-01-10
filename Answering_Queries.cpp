@@ -1,32 +1,68 @@
-// //In The Name of AintAH
-// #include <bits/stdc++.h>
-// using namespace std;
-// #define ll long long
-// int main() {
-// 	ios_base::sync_with_stdio(0);
-//     cin.tie(0);
-//     int t; cin >> t;
-//     while(t--) {
-//     	int n, q; cin >> n >> q; int a[n];
-//     	for(int i = 0; i < n; i++) cin >> a[i];
-//     	while(q--) {
-//     		int tp; cin >> tp;
-//     		if(tp == 1) {
-//     			ll sum = 0;
-//     			for(int i = 0; i < n; i++) {
-//                    sum += (1ll * a[i] * (n - 2 * i - 1));
-//     			}
-//     			cout << sum << "\n";
-//     		}
-//     		else {
-//     			int i, x; cin >> i >> x;
-//     			a[i] = x;
-//     		}
-//     	}
-//     }
-//     return 0;
-// }
-// // O(t * n * q)
+//In The Name of AintAH
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+const int N = 1e5 + 7;
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    int t; cin >> t;
+    while(t--) {
+        int n, q; cin >> n >> q; int a[n];
+        for(int i = 0; i < n; i++) cin >> a[i];
+        while(q--) {
+            int x; cin >> x;
+            if(x == 1) {
+                int sum = 0;
+                for(int i = 0; i < n; i++) {
+                    for(int j = i + 1; j < n; j++) {
+                       sum += (a[i] - a[j]);
+                   }
+                } 
+                cout << sum << "\n";
+            }
+            else {
+                int ind, v; cin >> ind >> v;
+                a[ind] = v;
+            }
+        }
+    }
+    return 0;  
+}
+// O(t * q * n * n);
+
+
+//In The Name of AintAH
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main() {
+	ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    int t; cin >> t;
+    while(t--) {
+    	int n, q; cin >> n >> q; int a[n];
+    	for(int i = 0; i < n; i++) cin >> a[i];
+    	while(q--) {
+    		int tp; cin >> tp;
+    		if(tp == 1) {
+    			ll sum = 0;
+    			for(int i = 0; i < n; i++) {
+                   sum += (1ll * a[i] * (n - 2 * i - 1));
+    			}
+    			cout << sum << "\n";
+    		}
+    		else {
+    			int i, x; cin >> i >> x;
+    			a[i] = x;
+    		}
+    	}
+    }
+    return 0;
+}
+// O(t * n * q)
+
+
 
 //In The Name of AintAH
 #include <bits/stdc++.h>
@@ -64,4 +100,4 @@ int main() {
     return 0;
 }
 // O(t * q)
-//https://prnt.sc/E8PLMaVwxfN8
+// https://prnt.sc/E8PLMaVwxfN8
