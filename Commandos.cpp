@@ -4,7 +4,8 @@ using namespace std;
 #define ll long long
 const int N = 105;
 const int inf = 1e9;
-vector<int> adj[N];
+vector<int> g[N];
+
 vector<int> bfs(int s) {
   vector<int> dis(N, inf);
   queue<int> q;
@@ -13,7 +14,7 @@ vector<int> bfs(int s) {
   while(!q.empty()) {
     int u = q.front();
     q.pop();
-    for(auto v : adj[u]) {
+    for(auto v : g[u]) {
       if(dis[v] > dis[u] + 1) {
         dis[v] = dis[u] + 1;
         q.push(v);
@@ -22,6 +23,7 @@ vector<int> bfs(int s) {
   }
   return dis;
 }
+
 int main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
@@ -31,8 +33,8 @@ int main() {
      int n, m; cin >> n >> m;
      while(m--) {
        int u, v; cin >> u >> v;
-       adj[u].push_back(v);
-       adj[v].push_back(u);
+       g[u].push_back(v);
+       g[v].push_back(u);
      }
      int s, e; cin >> s >> e;
      auto ds = bfs(s);
@@ -44,7 +46,7 @@ int main() {
      }
      cout << "Case " << ++cs << ": " << ans << "\n";
      for(int u = 0; u < n; u++) {
-       adj[u].clear();
+       g[u].clear();
      }
   }
   return 0;

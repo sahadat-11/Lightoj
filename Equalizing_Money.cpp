@@ -5,14 +5,14 @@ using namespace std;
 const int N = 1e4 + 7;
 int money[N];
 int totol_money, people;
-vector<int> adj[N];
+vector<int> g[N];
 bool vis[N];
 
 void dfs(int u) {
   vis[u] = true;
   people++;
   totol_money += money[u];
-  for(auto v : adj[u]) {
+  for(auto v : g[u]) {
     if(!vis[v]) {
       dfs(v);
     }
@@ -23,12 +23,12 @@ void solve() {
   for(int i = 1; i <= n; i++) cin >> money[i];
   for(int i = 1; i <= n; i++) {
     vis[i] = false;
-    adj[i].clear();
+    g[i].clear();
   }
   for(int i = 1; i <= m; i++) {
     int u, v; cin >> u >> v;
-    adj[u].push_back(v);
-    adj[v].push_back(u);
+    g[u].push_back(v);
+    g[v].push_back(u);
   }
   set<int> st;
   for(int u = 1; u <= n; u++) {
