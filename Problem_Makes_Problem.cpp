@@ -1,7 +1,7 @@
 //In The Name of ALLAH
 #include<bits/stdc++.h>
 using namespace std;
-const int N = 1e6 + 2, mod = 1000003;
+const int N = 2e6 + 7, mod = 1e9 + 7;
 #define int long long
 int f[N], invf[N];
 
@@ -39,7 +39,8 @@ void precal() {
 }
 void solve() {
   int n, r; cin >> n >> r;
-  cout << nCr(n, r) << "\n";
+  cout << nCr(n + r - 1, r - 1) << "\n";
+  // n + r so N = 2e6 + 7;
 }
 int32_t main() {
   ios_base::sync_with_stdio(0);
@@ -49,7 +50,7 @@ int32_t main() {
   int t = 1, cs = 0; 
   cin >> t;
   while(t--) {
-  	cout << "Case " << ++ cs << ": ";
+    cout << "Case " << ++ cs << ": ";
     solve();
   }
   return 0;

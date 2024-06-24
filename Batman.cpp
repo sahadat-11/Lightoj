@@ -30,6 +30,54 @@ int main() {
   return 0;
 }
 
+// n to 1
+
+
+//In The Name of ALLAH
+#include<bits/stdc++.h>
+using namespace std;
+const int N = 55, mod = 1e9 + 7;
+#define int long long
+int n, m, o;
+string a, b, c; 
+int dp[N][N][N];
+
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int t, cs = 0; cin >> t;
+  while(t--) {
+    cout << "Case " << ++ cs << ": ";
+    cin >> a >> b >> c;
+    n = a.size(), m = b.size(), o = c.size();
+    for(int i = n - 1; i >= 0; i--) {
+      for(int j = m - 1; j >= 0; j--) {
+        for(int k = o - 1; k >= 0; k--) {
+          int ans = dp[i + 1][j][k];
+          ans = max(ans, dp[i][j + 1][k]);
+          ans = max(ans, dp[i][j][k + 1]);
+          if(a[i] == b[j] and b[j] == c[k]) {
+            ans = max(ans, dp[i + 1][j + 1][k + 1] + 1);
+          }
+          dp[i][j][k] = ans;
+        }
+      }
+    }
+    cout << dp[0][0][0] << "\n";
+
+    for(int i = n - 1; i >= 0; i--) {
+      for(int j = m - 1; j >= 0; j--) {
+        for(int k = o - 1; k >= 0; k--) {
+          dp[i][j][k] = 0;
+        }
+      }
+    }
+  }
+  return 0;
+}
+
+// n to 1
+
 
 //In The Name of ALLAH
 #include<bits/stdc++.h>
@@ -62,6 +110,8 @@ int main() {
   }
   return 0;
 }
+
+// 1 to n
 
 
 //In The Name of ALLAH
@@ -101,6 +151,9 @@ int main() {
   return 0;
 }
 
+// 1 to n
+
+
 
 //In The Name of ALLAH
 #include<bits/stdc++.h>
@@ -137,3 +190,4 @@ int main() {
   }
   return 0;
 }
+// n to 1;

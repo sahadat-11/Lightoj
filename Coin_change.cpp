@@ -1,6 +1,46 @@
 //In The Name of ALLAH
 #include<bits/stdc++.h>
 using namespace std;
+const int N = 55, K = 1005, mod = 100000007;
+#define int long long
+int dp[N][K];
+int coins[N], cnt[N], n, k;
+
+int func(int i, int cur_val) {
+  if(cur_val > k) return 0;
+  if(i == n + 1) {
+    if(cur_val == k) return 1;
+    return 0;
+  }
+  if(dp[i][cur_val] != -1) return dp[i][cur_val];
+  int ans = 0;
+  for(int c = 0; c <= cnt[i]; c++) {
+    ans += func(i + 1, cur_val + coins[i] * c);
+    ans %= mod;
+  }
+  dp[i][cur_val] = ans;
+  return dp[i][cur_val];
+}
+
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int t, cs = 0; cin >> t;
+  while(t--) {
+    cout << "Case " << ++ cs << ": ";
+    memset(dp, -1, sizeof dp);
+    cin >> n >> k;
+    for(int i = 1; i <= n; i++) cin >> coins[i];
+    for(int i = 1; i <= n; i++) cin >> cnt[i];
+    cout << func(1, 0) << "\n";
+  }
+  return 0;
+}
+
+
+//In The Name of ALLAH
+#include<bits/stdc++.h>
+using namespace std;
 const int  N = 105, K = 1005, mod = 100000007;
 int a[N], c[N], dp[N][K], n, k; 
 int f(int i, int cur_val) {
@@ -33,6 +73,44 @@ int main() {
  }
   return 0;
 }
+
+
+//In The Name of ALLAH
+#include<bits/stdc++.h>
+using namespace std;
+const int  N = 105, K = 1005, mod = 100000007;
+int a[N], c[N], dp[N][K], n, k; 
+int f(int i, int cur_val) {
+  if(cur_val < 0) return 0;
+  if(i == n + 1) {
+    if(cur_val == 0) return 1;
+    return 0;
+  }
+ if(dp[i][cur_val] != -1) return dp[i][cur_val];
+  int ans = 0;
+  for(int cnt = 0; cnt <= c[i]; cnt++) {
+    if(k - (a[i] * cnt) >= 0) {
+    ans += f(i + 1, cur_val - (a[i] * cnt));
+    ans %= mod;
+   } 
+  }
+  return dp[i][cur_val] = ans;
+} 
+int main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int t, cs = 0; cin >> t;
+  while(t--) {
+  cin >> n >> k;
+  for(int i = 1; i <= n; i++) cin >> a[i];
+  for(int i = 1; i <= n; i++) cin >> c[i];
+  cout << "Case " << ++cs << ": ";
+  memset(dp, -1, sizeof dp);
+  cout << f(1, k) << "\n";
+ }
+ return 0;
+}
+
 
 //In The Name of ALLAH
 #include<bits/stdc++.h>
@@ -72,39 +150,4 @@ int main() {
   return 0;
 }
 
-
-//In The Name of ALLAH
-#include<bits/stdc++.h>
-using namespace std;
-const int  N = 105, K = 1005, mod = 100000007;
-int a[N], c[N], dp[N][K], n, k; 
-int f(int i, int cur_val) {
-  if(cur_val < 0) return 0;
-  if(i == n + 1) {
-    if(cur_val == 0) return 1;
-    return 0;
-  }
- if(dp[i][cur_val] != -1) return dp[i][cur_val];
-  int ans = 0;
-  for(int cnt = 0; cnt <= c[i]; cnt++) {
-    if(k - (a[i] * cnt) >= 0) {
-    ans += f(i + 1, cur_val - (a[i] * cnt));
-    ans %= mod;
-   } 
-  }
-  return dp[i][cur_val] = ans;
-} 
-int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  int t, cs = 0; cin >> t;
-  while(t--) {
-  cin >> n >> k;
-  for(int i = 1; i <= n; i++) cin >> a[i];
-  for(int i = 1; i <= n; i++) cin >> c[i];
-  cout << "Case " << ++cs << ": ";
-  memset(dp, -1, sizeof dp);
-  cout << f(1, k) << "\n";
- }
-  return 0;
-}
+// https://prnt.sc/zhH2S1So2bRD
